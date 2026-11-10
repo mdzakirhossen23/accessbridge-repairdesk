@@ -12,11 +12,11 @@ Multilingual interface; English and Bangla AI repair guidance; read-aloud with m
 
 ## Source status
 
-`index.html` is the current deployed frontend, including its CSS and JavaScript. The deployed PHP AI endpoint is pending export from the hosting account; this repository is not yet a complete AI deployment. Credentials will never be committed. The page also references an existing BaharSoftBD presence script and externally hosted illustrative images.
+`index.html` is the current deployed frontend, including its CSS and JavaScript. `api-chat.php` contains the deployed backend logic, reformatted for readability. Credentials will never be committed. The page also references an existing BaharSoftBD presence script and externally hosted illustrative images.
 
 ## Run
 
-Serve this directory with a local web server for the browser UI. AI requires `api-chat.php` on a PHP server with cURL, mbstring, HTTPS access to Groq, and a separately configured secret outside the public web directory. Until that backend is added, use the live demo for AI.
+Serve this directory with a local web server for the browser UI. AI requires `api-chat.php` on a PHP server with cURL, mbstring, HTTPS access to Groq, and a separately configured secret outside the public web directory. Deploy both files in your HTTPS public web directory. The endpoint uses PHP 8+ and looks for `.accessbridge-groq-key.php` two directories above its directory (outside public_html in the original hosting layout); adjust `$secretDir` for your hosting layout. Create that private PHP file yourself with `<?php return 'YOUR_GROQ_API_KEY';` and use restrictive file permissions. Never put a real key in this repository. A missing key returns a configuration error.
 
 Read-aloud requires an installed browser voice for the selected language. Test speaker output before recording. Local records are browser-specific; export backups before clearing site data.
 
