@@ -1,0 +1,7 @@
+.env
+.env.*
+!.env.example
+*groq-key.php
+*.log
+*.zip
+RepairDesk-backup*.json
